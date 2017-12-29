@@ -84,7 +84,7 @@ struct print_tuple {
 template<typename T, size_t N>
 struct print_tuple<T, N, N> {
     static void print(std::ostream &os, T t) {
-        os << std::get<N>(t);
+        os << static_cast<int>(std::get<N>(t));
     }
 };
 ////////////////////////////////////////
@@ -92,62 +92,38 @@ struct print_tuple<T, N, N> {
 
 template<typename T>
 typename std::enable_if_t<std::is_integral<T>::value> _ip_print(T t, std::ostream &os) {
-    os << "integral: " << t << std::endl;
-    os << "\tsize: " << sizeof(T) << std::endl;
-    os << "\tvalue: ";
     for(size_t n = sizeof(T); n > 0; --n) {
-        std::cout << ((t >> ((n-1)<<3)) & 0xff);
+        std::cout << static_cast<int>((t >> ((n-1)<<3)) & 0xff);
         if(n - 1 > 0)
             std::cout << '.';
     }
-    std::cout << std::endl;
 }
 
 template<typename T>
 typename std::enable_if_t<std::is_array<T>::value && std::is_integral< std::remove_all_extents_t<T> >::value > _ip_print(const T &t, std::ostream &os) {
-    os << "array: " << std::endl;
-    os << "\trank: " << std::rank<T>::value << std::endl;
-    os << "\textent: " << std::extent<T>::value << std::endl;
-    os << "\tvalue: ";
     for(size_t n = 0; n < std::extent<T>::value; ++n) {
         if(n > 0)
             os << '.';
-        os << t[n];
+        os << static_cast<int>(t[n]);
     }
-    std::cout << std::endl;
 }
 
 template<typename T>
 typename std::enable_if_t<has_begin<T>::value && has_end<T>::value && std::is_integral<std::remove_reference_t<decltype(*(std::declval<T>().begin()))>>::value> _ip_print(const T &t, std::ostream &os) {
-    os << "container: " << std::endl;
-    os << "\tvalue: ";
     for(auto i = t.begin(); i != t.end(); ++i) {
         if(i != t.begin())
             os << '.';
-        os << *i;
+        os << static_cast<int>(*i);
     }
-    std::cout << std::endl;
 }
 
 template<typename T>
 typename std::enable_if_t<is_tuple<T>::value> _ip_print(const T &t, std::ostream &os) {
-    os << "tuple: " << std::endl;
-    os << "\tis_integral: " << is_tuple_integral<T>::value << std::endl;
-    os << "\tvalue: ";
     print_tuple<T, 0, std::tuple_size<T>::value - 1>::print(os, t);
-    std::cout << std::endl;
 }
 
-
 template<typename T>
-void ip_print(const T &t, std::ostream &os) {
-    os << "print from type: " << pretty_type_name<T>() << std::endl;
-    os << "\tintegral: "  << std::is_integral<T>::value << std::endl;
-    os << "\tpointer: " << std::is_pointer<T>::value << std::endl;
-    os << "\tarray: " << std::is_array<T>::value << std::endl;
-    os << "\thas_iterator: " << has_iterator<T>::value << std::endl;
-    os << "\thas_begin: " << has_begin<T>::value << std::endl;
-    os << "\thas_end: " << has_end<T>::value << std::endl;
+std::ostream& ip_print(const T &t, std::ostream &os) {
    _ip_print<T>(t, os);
-    os << std::endl;
+   return os;
 }

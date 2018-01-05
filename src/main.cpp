@@ -8,29 +8,15 @@
 #include <tuple>
 #include "ip_print.h"
 
-void body()
-{
-    ip_print((int8_t)0x01, std::cout << "int8_t: ") << std::endl;
-    ip_print((int16_t)0x0102, std::cout << "int16_t: ") << std::endl;
-    ip_print((int32_t)0x01020304, std::cout << "int32_t: ") << std::endl;
-    ip_print((int64_t)0x0102030405060708, std::cout << "int64_t: ") << std::endl;
-    ip_print("123", std::cout << "const char*: ") << std::endl; // char [4] = {'1', '2', '3', '\0'}
+/*! \file
+  application entry point
 
-    int a[3] = {1, 2, 3};
-    ip_print(a, std::cout << "array: ") << std::endl;
+  Usage:
 
-    std::vector<int> v{1, 2, 3};
-    ip_print(v, std::cout << "vector: ") << std::endl;
+    \--help,-h print help
 
-    std::list<long> l;
-    l.push_back(1);
-    l.push_back(2);
-    l.push_back(3);
-    ip_print(l, std::cout << "list: ") << std::endl;
-
-    auto t = std::make_tuple(1, 2, 3);
-    ip_print(t, std::cout << "tuple: ") << std::endl;
-}
+    \--version,-v print application and boost version
+*/
 
 int main(int argc, char** argv)
 {
@@ -50,7 +36,7 @@ int main(int argc, char** argv)
         std::cout << "Boost version: " << (BOOST_VERSION / 100000) << '.' << (BOOST_VERSION / 100 % 1000) << '.' << (BOOST_VERSION % 100) << std::endl;
     } else {
 
-        body();
+        std::cout << "Done nothing" << std::endl;
 
     }
 

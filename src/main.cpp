@@ -8,7 +8,8 @@
 #include <tuple>
 #include "ip_print.h"
 
-void body() {
+void body()
+{
     ip_print((int8_t)0x01, std::cout << "int8_t: ") << std::endl;
     ip_print((int16_t)0x0102, std::cout << "int16_t: ") << std::endl;
     ip_print((int32_t)0x01020304, std::cout << "int32_t: ") << std::endl;
@@ -31,7 +32,7 @@ void body() {
     ip_print(t, std::cout << "tuple: ") << std::endl;
 }
 
-int main(int argc, char** argv) 
+int main(int argc, char** argv)
 {
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()

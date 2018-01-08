@@ -1,0 +1,70 @@
+\hypertarget{ip__print_8h}{}\section{src/ip\+\_\+print.h File Reference}
+\label{ip__print_8h}\index{src/ip\+\_\+print.\+h@{src/ip\+\_\+print.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for ip\+\_\+print.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{ip__print_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{ip__print_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhas__begin}{has\+\_\+begin$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em check if type T has \textquotesingle{}begin()\textquotesingle{} method \end{DoxyCompactList}\item 
+struct \hyperlink{structhas__end}{has\+\_\+end$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em check if type T has \textquotesingle{}end()\textquotesingle{} method \end{DoxyCompactList}\item 
+struct \hyperlink{structis__tuple}{is\+\_\+tuple$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em check if type T is tuple \end{DoxyCompactList}\item 
+struct \hyperlink{structis__tuple__same}{is\+\_\+tuple\+\_\+same$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em check if tuple T has all elements of the same type \end{DoxyCompactList}\item 
+struct \hyperlink{structis__tuple__integral}{is\+\_\+tuple\+\_\+integral$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em check if tuple T has all elements of the integral type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::string \hyperlink{ip__print_8h_a9f3a0223dc52c156a797906ecf696562}{pretty\+\_\+type\+\_\+name} ()
+\begin{DoxyCompactList}\small\item\em function provided for type of T to be printed \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{ip__print_8h_ae241e51a484f0430540953e328da150f}{ip\+\_\+print} (const T \&t, std\+::ostream \&os)
+\begin{DoxyCompactList}\small\item\em ip print from varuous types \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+
+
+
+\subsection{Detailed Description}
+ip\+\_\+print implementation 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ip__print_8h_ae241e51a484f0430540953e328da150f}\label{ip__print_8h_ae241e51a484f0430540953e328da150f}} 
+\index{ip\+\_\+print.\+h@{ip\+\_\+print.\+h}!ip\+\_\+print@{ip\+\_\+print}}
+\index{ip\+\_\+print@{ip\+\_\+print}!ip\+\_\+print.\+h@{ip\+\_\+print.\+h}}
+\subsubsection{\texorpdfstring{ip\+\_\+print()}{ip\_print()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& ip\+\_\+print (\begin{DoxyParamCaption}\item[{const T \&}]{t,  }\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+ip print from varuous types 
+
+\mbox{\Hypertarget{ip__print_8h_a9f3a0223dc52c156a797906ecf696562}\label{ip__print_8h_a9f3a0223dc52c156a797906ecf696562}} 
+\index{ip\+\_\+print.\+h@{ip\+\_\+print.\+h}!pretty\+\_\+type\+\_\+name@{pretty\+\_\+type\+\_\+name}}
+\index{pretty\+\_\+type\+\_\+name@{pretty\+\_\+type\+\_\+name}!ip\+\_\+print.\+h@{ip\+\_\+print.\+h}}
+\subsubsection{\texorpdfstring{pretty\+\_\+type\+\_\+name()}{pretty\_type\_name()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string pretty\+\_\+type\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function provided for type of T to be printed 
+

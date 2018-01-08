@@ -1,0 +1,63 @@
+\hypertarget{structhas__begin}{}\section{has\+\_\+begin$<$ T $>$ Struct Template Reference}
+\label{structhas__begin}\index{has\+\_\+begin$<$ T $>$@{has\+\_\+begin$<$ T $>$}}
+
+
+check if type T has \textquotesingle{}begin()\textquotesingle{} method  
+
+
+
+
+{\ttfamily \#include $<$ip\+\_\+print.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U $>$ }\\static std\+::true\+\_\+type \hyperlink{structhas__begin_a9483204ce6d4d3de89ccd58f14e73cac}{test} (decltype(std\+::declval$<$ U $>$().begin()) $\ast$)
+\item 
+{\footnotesize template$<$typename U $>$ }\\static std\+::false\+\_\+type \hyperlink{structhas__begin_a47c984fb137d9cbe3db134c6a5a22550}{test} (...)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \hyperlink{structhas__begin_ae9ecdd6dfb43b08a7a028c5e8794359a}{value} = std\+::is\+\_\+same$<$ decltype(\hyperlink{structhas__begin_a9483204ce6d4d3de89ccd58f14e73cac}{test}$<$T$>$(nullptr)), std\+::true\+\_\+type$>$\+::value
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct has\+\_\+begin$<$ T $>$}
+
+check if type T has \textquotesingle{}begin()\textquotesingle{} method 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structhas__begin_a9483204ce6d4d3de89ccd58f14e73cac}\label{structhas__begin_a9483204ce6d4d3de89ccd58f14e73cac}} 
+\index{has\+\_\+begin@{has\+\_\+begin}!test@{test}}
+\index{test@{test}!has\+\_\+begin@{has\+\_\+begin}}
+\subsubsection{\texorpdfstring{test()}{test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+static std\+::true\+\_\+type \hyperlink{structhas__begin}{has\+\_\+begin}$<$ T $>$\+::test (\begin{DoxyParamCaption}\item[{decltype(std\+::declval$<$ U $>$().begin()) $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structhas__begin_a47c984fb137d9cbe3db134c6a5a22550}\label{structhas__begin_a47c984fb137d9cbe3db134c6a5a22550}} 
+\index{has\+\_\+begin@{has\+\_\+begin}!test@{test}}
+\index{test@{test}!has\+\_\+begin@{has\+\_\+begin}}
+\subsubsection{\texorpdfstring{test()}{test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+static std\+::false\+\_\+type \hyperlink{structhas__begin}{has\+\_\+begin}$<$ T $>$\+::test (\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structhas__begin_ae9ecdd6dfb43b08a7a028c5e8794359a}\label{structhas__begin_ae9ecdd6dfb43b08a7a028c5e8794359a}} 
+\index{has\+\_\+begin@{has\+\_\+begin}!value@{value}}
+\index{value@{value}!has\+\_\+begin@{has\+\_\+begin}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool \hyperlink{structhas__begin}{has\+\_\+begin}$<$ T $>$\+::value = std\+::is\+\_\+same$<$ decltype(\hyperlink{structhas__begin_a9483204ce6d4d3de89ccd58f14e73cac}{test}$<$T$>$(nullptr)), std\+::true\+\_\+type$>$\+::value\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{ip__print_8h}{ip\+\_\+print.\+h}\end{DoxyCompactItemize}

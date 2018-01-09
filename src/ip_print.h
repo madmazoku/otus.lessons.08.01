@@ -112,7 +112,7 @@ struct print_tuple<T, N, N> {
 //! helper ip print from integral type
 /// @private
 template<typename T>
-typename std::enable_if_t<std::is_integral<T>::value> _ip_print(T t, std::ostream &os)
+typename std::enable_if<std::is_integral<T>::value>::type _ip_print(T t, std::ostream &os)
 {
     for(size_t n = sizeof(T); n > 0; --n) {
         os << ((t >> ((n-1)<<3)) & 0xff);
@@ -124,7 +124,7 @@ typename std::enable_if_t<std::is_integral<T>::value> _ip_print(T t, std::ostrea
 //! helper ip print from array of integral type
 /// @private
 template<typename T>
-typename std::enable_if_t<std::is_array<T>::value && std::is_integral< std::remove_all_extents_t<T> >::value > _ip_print(const T &t, std::ostream &os)
+typename std::enable_if<std::is_array<T>::value && std::is_integral< std::remove_all_extents_t<T> >::value >::type _ip_print(const T &t, std::ostream &os)
 {
     for(size_t n = 0; n < std::extent<T>::value; ++n) {
         if(n > 0)
@@ -136,7 +136,7 @@ typename std::enable_if_t<std::is_array<T>::value && std::is_integral< std::remo
 //! helper ip print from container of integral type
 /// @private
 template<typename T>
-typename std::enable_if_t<has_begin<T>::value && has_end<T>::value && std::is_integral<std::remove_reference_t<decltype(*(std::declval<T>().begin()))>>::value> _ip_print(const T &t, std::ostream &os)
+typename std::enable_if<has_begin<T>::value && has_end<T>::value && std::is_integral<std::remove_reference_t<decltype(*(std::declval<T>().begin()))>>::value>::type _ip_print(const T &t, std::ostream &os)
 {
     for(auto i = t.begin(); i != t.end(); ++i) {
         if(i != t.begin())
@@ -148,7 +148,7 @@ typename std::enable_if_t<has_begin<T>::value && has_end<T>::value && std::is_in
 //! helper ip print from tuple of the same integral type
 /// @private
 template<typename T>
-typename std::enable_if_t<is_tuple<T>::value && is_tuple_integral<T>::value && is_tuple_same<T>::value> _ip_print(const T &t, std::ostream &os)
+typename std::enable_if<is_tuple<T>::value && is_tuple_integral<T>::value && is_tuple_same<T>::value>::type _ip_print(const T &t, std::ostream &os)
 {
     print_tuple<T, 0, std::tuple_size<T>::value - 1>::print(os, t);
 }

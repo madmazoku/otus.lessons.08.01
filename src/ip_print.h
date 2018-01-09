@@ -6,16 +6,6 @@
 
 #include <iostream>
 #include <type_traits>
-#include <boost/type_index.hpp>
-
-//! \brief function provided for type of T to be printed
-template<class T>
-std::string pretty_type_name()
-{
-    std::stringstream ss;
-    ss << '[' << sizeof(T) << "] " << boost::typeindex::type_id_with_cvr<T>().pretty_name();
-    return ss.str();
-}
 
 //! \brief check if type T has 'begin()' method
 template<typename T>

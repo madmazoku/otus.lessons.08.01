@@ -121,6 +121,7 @@ typename std::enable_if<std::is_integral<T>::value>::type _ip_print(T t, std::os
     }
 }
 
+//! helper for std::remove_all_extents
 template<typename _T>
 using remove_all_extents_t = typename std::remove_all_extents<_T>::type;
 
@@ -136,6 +137,7 @@ typename std::enable_if<std::is_array<T>::value && std::is_integral< remove_all_
     }
 }
 
+//! helper for std::remove_reference
 template<typename _T>
 using remove_reference_t = typename std::remove_reference<_T>::type;
 

@@ -121,10 +121,13 @@ typename std::enable_if<std::is_integral<T>::value>::type _ip_print(T t, std::os
     }
 }
 
+template<typename _T>
+using remove_all_extents_t = typename std::remove_all_extents<_T>::type;
+
 //! helper ip print from array of integral type
 /// @private
 template<typename T>
-typename std::enable_if<std::is_array<T>::value && std::is_integral< std::remove_all_extents_t<T> >::value >::type _ip_print(const T &t, std::ostream &os)
+typename std::enable_if<std::is_array<T>::value && std::is_integral< remove_all_extents_t<T> >::value >::type _ip_print(const T &t, std::ostream &os)
 {
     for(size_t n = 0; n < std::extent<T>::value; ++n) {
         if(n > 0)
@@ -133,10 +136,13 @@ typename std::enable_if<std::is_array<T>::value && std::is_integral< std::remove
     }
 }
 
+template<typename _T>
+using remove_reference_t = typename std::remove_reference<_T>::type;
+
 //! helper ip print from container of integral type
 /// @private
 template<typename T>
-typename std::enable_if<has_begin<T>::value && has_end<T>::value && std::is_integral<std::remove_reference_t<decltype(*(std::declval<T>().begin()))>>::value>::type _ip_print(const T &t, std::ostream &os)
+typename std::enable_if<has_begin<T>::value && has_end<T>::value && std::is_integral<remove_reference_t<decltype(*(std::declval<T>().begin()))>>::value>::type _ip_print(const T &t, std::ostream &os)
 {
     for(auto i = t.begin(); i != t.end(); ++i) {
         if(i != t.begin())

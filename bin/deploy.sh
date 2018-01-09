@@ -1,4 +1,5 @@
 echo Deploy script executed for 0.0.$TRAVIS_BUILD_NUMBER
+pwd
 cp -r html/* ../docs/
 git add -f ../docs
 git commit -m 'update docs 0.0.$TRAVIS_BUILD_NUMBER'

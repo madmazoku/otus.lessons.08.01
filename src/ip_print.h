@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <type_traits>
+#include <boost/type_index.hpp>
 
 //! \brief function provided for type of T to be printed
 template<class T>
